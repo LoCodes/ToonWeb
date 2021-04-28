@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'animes/index'
+  get 'animes/new'
+  get 'animes/edit'
+  get 'animes/show'
   resources :genres
   resources :animes
   resources :users
