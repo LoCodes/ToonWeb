@@ -12,8 +12,10 @@ class AnimesController < ApplicationController
     @anime = Anime.new
   end
 
-  #route:       path/prefix:  
+  #route: /animes       path/prefix:  animes_path
+  # only when we submit a form is when we make a post request 
   def create 
+    # byebug
   end 
 
 
