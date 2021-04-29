@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   #logout route 
-  get '/logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
 
   resources :genres
   resources :animes
