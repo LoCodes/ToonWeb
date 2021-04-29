@@ -1,4 +1,6 @@
 class AnimesController < ApplicationController
+  before_action :redirect_if_not_logged_in
+
 
   # show ALL animes
   # route: '/animes' path/prefix: animes_path

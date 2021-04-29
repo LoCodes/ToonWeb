@@ -15,11 +15,15 @@ class UsersController < ApplicationController
     end
 
     def show  # DELETE THIS LATER  DOES NOT WORK 
-        if current_user == logged_in?
-            @user = User.find_by(id: params[:id])
-        else
-            redirect_to rooth_path
-        end
+        
+        @user = User.find_by(id: params[:id])
+        # redirect_if_not_logged_in
+        
+        # if current_user == logged_in?
+        #     @user = User.find_by(id: params[:id])
+        # else
+        #     redirect_to rooth_path
+        # end
 
     end 
 

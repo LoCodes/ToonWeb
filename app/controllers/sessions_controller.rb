@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to root_path
+            redirect_to user_path(user)
         else
+            # flash[:message] = "Incorrect login credentials, try again."
             render :new 
         end 
     end 
