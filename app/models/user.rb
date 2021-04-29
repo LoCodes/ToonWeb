@@ -6,6 +6,8 @@ class User < ApplicationRecord
     validates :email, presence: true 
     validates :email, uniqueness: true
 
+    # validates [:username, :email], presence: true
+
     has_many :animes
     has_many :genres, through: :animes
 

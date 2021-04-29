@@ -1,22 +1,30 @@
 class UsersController < ApplicationController
 
+    def index 
+        @users = User.all 
+    end 
+
     def new
-        @anime = Anime.new
+        @user = User.new
     end
 
+    def show 
+        @user = User.find_by(id: params[:id])
+    end 
+
     def create 
-        @anime = Anime.new(anime_params)
-        if @anime.save
-            redirect_to anime_path(@anime)
+        @user = User.new(user_params)
+        if @user.save
+            redirect_to user_path(@user)
         else 
-            rener :new 
+            render :new 
         end 
     end     
     
 private 
     
-    def anime_params
-        params.require(:anime).permit(:username, :email, :password)
+    def user_params
+        params.require(:user).permit(:username, :email, :password)
     end 
     
 end
