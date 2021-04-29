@@ -6,11 +6,21 @@ class UsersController < ApplicationController
     end 
 
     def new
-        @user = User.new
+        if !logged_in?
+            @user = User.new
+        else
+            redirect_to rooth_path
+        end 
+
     end
 
     def show 
-        @user = User.find_by(id: params[:id])
+        if logged_in?
+            redirect_to root_path
+        else
+            
+        end
+
     end 
 
     def create 
@@ -20,6 +30,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)  #can also do @user only 
         else 
+            #show errors 
             render :new 
         end 
     end     
