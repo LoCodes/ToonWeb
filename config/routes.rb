@@ -5,6 +5,16 @@ Rails.application.routes.draw do
   # get 'animes/show'
 
   root to: 'application#welcome'
+
+  # get '/signup' => 'users#new', as: 'signup'
+  # post '/signup' => 'users#create'
+
+  #login route 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  #logout route 
+  delete '/logout' => 'sessions#destroy'
+
   resources :genres
   resources :animes
   resources :users

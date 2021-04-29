@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    # do i want this? 
     def index 
         @users = User.all 
     end 
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
         if @user.save
-            redirect_to user_path(@user)
+            #log them in 
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)  #can also do @user only 
         else 
             render :new 
         end 
