@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'application#welcome'
 
-  # get '/signup' => 'users#new', as: 'signup'
-  # post '/signup' => 'users#create'
+  get '/signup', to: 'users#new'#, as: signup. --users/signup dont work 
+  post '/signup', to: 'users#create'
 
   #login route 
   get '/login' => 'sessions#new'
