@@ -15,14 +15,18 @@ class AnimesController < ApplicationController
   #route: /animes       path/prefix:  animes_path
   # only when we submit a form is when we make a post request 
   def create 
-    # byebug
+    @anime = Anime.new(anime_params)
+    if @anime.save
+      redirect_to anime_path(@anime)
+    else 
+      render :new 
+    end 
   end 
 
 
   def show
+    @anime = Anime.find_by(id: params[:id])
   end
-
-
 
 
 
@@ -37,5 +41,11 @@ class AnimesController < ApplicationController
   #route:       path/prefix:
   def destroy 
   end 
+
+private
+
+  def anime_params 
+    params.require(:anime).permit(:title, :content, :user_id, :genre_id)
+  end
 
 end
