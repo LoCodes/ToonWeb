@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # get 'animes/new'
   # get 'animes/edit'
   # get 'animes/show'
+
+  root to: 'application#welcome'
   resources :genres
   resources :animes
   resources :users
