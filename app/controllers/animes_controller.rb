@@ -16,10 +16,11 @@ class AnimesController < ApplicationController
 
   #route: /animes       path/prefix:  animes_path
   # only when we submit a form is when we make a post request 
-  def create 
-    @anime = Anime.new(anime_params)
+  def create  
+    # @anime = Anime.new(anime_params)
+    @anime = current_user.animes.build(anime_params)
     if @anime.save
-      redirect_to anime_path(@anime)
+      redirect_to animes_path #index for now
     else 
       render :new 
     end 
@@ -47,7 +48,7 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :user_id, :genre_id)
+    params.require(:anime).permit(:title, :content) #, :user_id, :genre_id
   end
 
 end
