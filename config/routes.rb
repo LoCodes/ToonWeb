@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   resources :users
+  resources :animes, only: [:index, :new, :create]
 
 
   #nested routes should go in one direction PARENT => CHILD
@@ -24,9 +25,8 @@ Rails.application.routes.draw do
     resources :animes, only: [:index, :new, :create]  #CHILD. => will creaate 7 nested restful routes 
   end 
 
-  
 
-  resources :animes
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

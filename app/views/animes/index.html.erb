@@ -2,6 +2,14 @@
 <p>Find me in app/views/animes/index.html.erb</p>
 
 
+<%# can put in helper%>
+<%if @genre %>
+    <%= @genre.name %>'s animes 
+<% else %>
+    <h3> All Anime  </h3>
+
+<% end %>
+
 <% @animes.each do |a| %>
     Title: <%= a.title %>
     Content: <%= a.content %>

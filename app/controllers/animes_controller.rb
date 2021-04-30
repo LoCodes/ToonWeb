@@ -5,7 +5,17 @@ class AnimesController < ApplicationController
   # show ALL animes
   # route: '/animes' path/prefix: animes_path
   def index
-    @animes = Anime.all
+    # byebug
+    # if its a nested route 
+      # render nester resource data 
+    # else 
+
+    if params[:genre_id] 
+      @genre = Genre.find_by(params[:genre_id])
+      @animes = @genre.animes
+    else 
+      @animes = Anime.all
+    end 
   end
 
   #to render a new form
@@ -20,7 +30,7 @@ class AnimesController < ApplicationController
     # @anime = Anime.new(anime_params)
     @anime = current_user.animes.build(anime_params)
     if @anime.save
-      redirect_to animes_path #index for now
+      redirect_to anime_path(@anime) #show for now
     else 
       render :new 
     end 
