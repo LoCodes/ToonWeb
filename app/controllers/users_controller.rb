@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if !logged_in?
             @user = User.new
         else
-            redirect_to rooth_path
+            redirect_to root_path
         end 
 
     end
@@ -46,3 +46,5 @@ private
     end 
     
 end
+
+ 

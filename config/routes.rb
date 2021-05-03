@@ -15,15 +15,24 @@ Rails.application.routes.draw do
   #logout route 
   post '/logout' => 'sessions#destroy'
 
-  resources :users
-  resources :animes, only: [:index, :new, :create]
+  resources :animes
 
+  #'/users/:id/animes'
+  #'/users/:id/animes/new'
+  resources :users do 
+    resources :animes, only: [:index, :new, :create] #i only wanna do nested for index, CHANGE LATER?
+  end 
 
   #nested routes should go in one direction PARENT => CHILD
   # we only want index, new, create 
+
+  #'/genres/:id/animes'
+  #'/genres/:id/animes/new'
   resources :genres do #PARENT
     resources :animes, only: [:index, :new, :create]  #CHILD. => will creaate 7 nested restful routes 
   end 
+
+  #@anime.genre
 
 
 

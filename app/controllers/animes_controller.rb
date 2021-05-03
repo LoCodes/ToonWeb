@@ -10,10 +10,11 @@ class AnimesController < ApplicationController
       # render nester resource data 
     # else 
 
-    if params[:genre_id] 
-      @genre = Genre.find_by(params[:genre_id])
+    if params[:genre_id] && @genre = Genre.find_by_id(params[:genre_id])   # to know its nested 
+      # @genre = Genre.find_by_id(params[:genre_id])
       @animes = @genre.animes
     else 
+      @error = "That genre does not exist yet." if params[:genre_id]
       @animes = Anime.all
     end 
   end
@@ -21,7 +22,12 @@ class AnimesController < ApplicationController
   #to render a new form
   #route: animes/new      path/prefix: new_anime_path
   def new
-    @anime = Anime.new
+    if params[:genre_id]
+      @genre = Genre.find_by(params[:genre_id])
+      @anime = @genre.anime.build
+    else
+      @anime = Anime.new
+    end 
   end
 
   #route: /animes       path/prefix:  animes_path
