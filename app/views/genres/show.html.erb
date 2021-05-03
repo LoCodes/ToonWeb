@@ -1,3 +1,8 @@
 <h1> Genre Show </h1>
 
-<%= @genre.name %>
+<%= @genre.name %> 
+
+
+<h3> Add An Anime in This Genre: </h3>
+
+<%= link_to 'Add A New Anime', new_genre_anime_path(@genre) %>

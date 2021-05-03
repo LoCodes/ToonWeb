@@ -11,4 +11,6 @@ class User < ApplicationRecord
     has_many :animes
     has_many :genres, through: :animes
 
+    accepts_nested_attributes_for :animes, :genres
+
 end

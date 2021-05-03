@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #'/users/:id/animes'
   #'/users/:id/animes/new'
   resources :users do 
-    resources :animes, only: [:index, :new, :create] #i only wanna do nested for index, CHANGE LATER?
+    resources :animes #i only wanna do nested for index, CHANGE LATER?
   end 
 
   #nested routes should go in one direction PARENT => CHILD
