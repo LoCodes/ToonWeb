@@ -16,7 +16,8 @@
     <br>
       <% if logged_in? %>
         <%= link_to "Add Anime", new_anime_path %> |
-        <%= link_to "All Animes", animes_path %>
+        <%= link_to "All Animes", animes_path %> | 
+        <%= link_to "All Genres", genres_path %>
         <%= button_to "Log Out", logout_path %>
       <% else %>
         <%= button_to "Log In", login_path %><%= button_to "Sign Up", new_user_path(@user) %><br>
