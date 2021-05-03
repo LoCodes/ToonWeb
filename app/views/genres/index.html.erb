@@ -2,5 +2,5 @@
 
 
 <% @genres.each do |g| %>
-    <%= g.name %> <br>
+    <%= link_to g.name, genre_animes_path(g)%><br>
 <% end %>
