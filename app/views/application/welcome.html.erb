@@ -1,4 +1,4 @@
-<h1> Welcome Page </h1>
+<h1> Welcome Page  <%= @current_user%> </h1>
 
 
 <%# if logged in %>
@@ -8,3 +8,5 @@
 <%= button_to "Sign Up", new_user_path(@user)%>
 <br>
 <%= button_to "Log Out", logout_path %><br>
+
+
