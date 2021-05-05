@@ -2,7 +2,7 @@ class AnimesController < ApplicationController
   # before_action :redirect_if_not_logged_in
 
 
-  # show ALL animes
+  # show ALL anime s
   # route: '/animes' path/prefix: animes_path
   def index
     # if its a nested route 
@@ -12,8 +12,11 @@ class AnimesController < ApplicationController
     if params[:genre_id] && @genre = Genre.find_by_id(params[:genre_id])   # to know its nested 
       # @genre = Genre.find_by_id(params[:genre_id])
       @animes = @genre.animes
+    elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @animes = @user.animes
     else 
-      @error = "That genre does not exist yet." if params[:genre_id]
+      @error = "That genre does not exist yet." if params[:genre_id] 
+      @error1 = "That user does not exist yet." if params[:user_id]
       @animes = Anime.all
     end 
   end
@@ -91,7 +94,7 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :genre_id, genre_attributes: [:name]) #, :user_id, :genre_id
+    params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name]) 
   end
 
 end

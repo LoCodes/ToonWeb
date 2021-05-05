@@ -29,7 +29,9 @@
       <% if flash[:message] %>
         <%= flash[:message] %>
       <% end %>
-      <%= @error %>
+      <%= @error || @error1 %>
+
+      
 
 
     </div>
