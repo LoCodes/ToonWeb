@@ -5,7 +5,6 @@ class AnimesController < ApplicationController
   # show ALL animes
   # route: '/animes' path/prefix: animes_path
   def index
-    # byebug
     # if its a nested route 
       # render nester resource data 
     # else 
@@ -92,7 +91,7 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :genre_ids, genre_attributes: [:name]) #, :user_id, :genre_id
+    params.require(:anime).permit(:title, :content, :genre_id, genre_attributes: [:name]) #, :user_id, :genre_id
   end
 
 end

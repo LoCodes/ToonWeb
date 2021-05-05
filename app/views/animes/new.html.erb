@@ -18,7 +18,7 @@
 
     <h4> And Add the Genre </h4> 
 
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: true) %>
     <%= f.fields_for :genre do |g| %>
         
         <%= g.label :name %>
