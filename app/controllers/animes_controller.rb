@@ -1,5 +1,5 @@
 class AnimesController < ApplicationController
-  before_action :redirect_if_not_logged_in
+  # before_action :redirect_if_not_logged_in
 
 
   # show ALL animes
@@ -21,36 +21,54 @@ class AnimesController < ApplicationController
 
   #to render a new form
   #route: animes/new      path/prefix: new_anime_path
-  def new
-    if params[:genre_id]
-      @genre = Genre.find_by_id(params[:genre_id])
-      @anime = @genre.animes.build
+  # def new
+  #   @genre = Genre.find_by_id(params[:genre_id])
+
+  #   if params[:genre_id]
+  #     @anime = @genre.animes.build #creates empty associated objects 
       
-    else
-      @anime = Anime.new
-      @anime.build_genre
-      # @anime.build_genre #?? double check
-    end 
-  end
+  #   else
+  #     @anime = Anime.new
+  #     # # @anime.genre = @genre 
+  #     # @anime.genres.build 
+  #     # @anime.build_genre #?? double check
+  #   end 
+  # end
+
+  def new 
+    @anime = Anime.new
+    @anime.build_genre
+
+  end 
 
   #route: /animes       path/prefix:  animes_path
   # only when we submit a form is when we make a post request 
-  def create  
+  def create 
     # @anime = Anime.new(anime_params)
-    # @anime = current_user.animes.build(anime_params)
-    if params[:genre_id]
-      @genre = Genre.find_by_id(params[:genre_id])
-      @anime = @genre.animes.build(anime_params)
-    else
-      @anime = Anime.new(anime_params)
-    end 
-
+    @anime = current_user.animes.build(anime_params)
     if @anime.save 
-      redirect_to genre_animes_path(@anime.genre)
+      redirect_to animes_path
     else 
       render :new 
     end 
   end 
+
+  # def create  
+  #   # @anime = Anime.new(anime_params)
+  #   # @anime = current_user.animes.build(anime_params)
+  #   if params[:genre_id]
+  #     @genre = Genre.find_by_id(params[:genre_id])
+  #     @anime = @genre.animes.build(anime_params)
+  #   else
+  #     @anime = Anime.new(anime_params)
+  #   end 
+
+  #   if @anime.save 
+  #     redirect_to genre_animes_path(@anime.genre)
+  #   else 
+  #     render :new 
+  #   end 
+  # end 
 
 
   def show
@@ -74,7 +92,7 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :genre_id) #, :user_id, :genre_id
+    params.require(:anime).permit(:title, :content, :genre_ids, genre_attributes: [:name]) #, :user_id, :genre_id
   end
 
 end

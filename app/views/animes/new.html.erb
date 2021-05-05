@@ -11,12 +11,21 @@
     <%= f.label :title %>
     <%= f.text_field :title %><br><br>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %><br><br>
+    <%= f.label :content %>
+    <%= f.text_area :content %><br><br>
 
-    <%= f.label :genre %>
-    <%= f.collection_select :genre_name, Genre.all, :name, :name, include_blank: "or Add a Genre:" %>
-    <%= f.text_field :genre %>
+
+
+    <h4> And Add the Genre </h4> 
+
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+    <%= f.fields_for :genre do |g| %>
+        
+        <%= g.label :name %>
+        <%= g.text_field :name %>
+
+
+    <% end %>
 
 
     <%= f.submit %>

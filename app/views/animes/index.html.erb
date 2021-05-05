@@ -8,9 +8,9 @@
 <% else %>
     <h3> All Anime  </h3>
 
-<% end %>
+<% end %> <br>
 
-<% @animes.each do |a| %>
+<% @animes.each do |a| %><br><br>
     Title: <%= a.title %>
     Content: <%= a.content %>
     Genre: <%= a.genre.name %>
