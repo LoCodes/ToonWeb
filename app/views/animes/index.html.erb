@@ -10,11 +10,11 @@
 
 <% end %> <br>
 
-<% @animes.each do |a| %><br><br>
-    Title: <%= a.title %>
-    Content: <%= a.content %>
-    Genre: <%= a.genre.name %>
+<% @animes.each do |a| %>
+    <%= link_to a.title, anime_path(a)%><br>
     
 <% end %>
+
+
 
   
