@@ -92,10 +92,14 @@ class AnimesController < ApplicationController
 
   #route:       path/prefix:
   def edit
+    @anime = Anime.find_by_id(params[:id])
   end
 
   #route:       path/prefix:
   def update 
+    @anime = Anime.find_by_id(params[:id])
+    @anime.update(anime_params)
+    redirect to anime_path(@anime)
   end 
 
   #route:       path/prefix:
