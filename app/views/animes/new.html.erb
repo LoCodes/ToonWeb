@@ -7,27 +7,34 @@
 
 <h1> Add Your Favorite Anime/Cartoon! </h1>
 
-<%= form_with model: @anime do |f| %>
+<%= form_with model: [@genre, @anime] do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %><br><br>
 
     <%= f.label :content %>
     <%= f.text_area :content %><br><br>
 
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    
 
     <% if @genre %>
         Genre: <%= f.label @genre.name %><br>
         
-        <% f.hidden_field :genre_id, value: @genre.id %>
+        <%= f.hidden_field :genre_id, value: @genre.id %>
+        
+
+        
     <% else %>    
         <h4> And Add the Genre </h4> 
-
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: true) %>
-            <%= f.fields_for :genre do |g| %>
-        
+        <%= f.fields_for :genre do |g| %> 
             <%= g.label :name %>
             <%= g.text_field :name %>
         <% end %>
+
+        
+            
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: true) %>
+        
 
     <% end %>
 

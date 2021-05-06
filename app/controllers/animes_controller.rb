@@ -53,12 +53,17 @@ class AnimesController < ApplicationController
   # only when we submit a form is when we make a post request 
   def create 
     # @anime = Anime.new(anime_params) 
-    @anime = current_user.animes.build(anime_params)
-    if @anime.save 
-      redirect_to animes_path
+    if params[:genre_id] && @genre = Genre.find_by_id(params[:genre_id])
+      @anime = @genre.animes.build(anime_params)
     else 
-      render :new 
+      @anime = current_user.animes.build(anime_params)
     end 
+    byebug
+      if @anime.save 
+        redirect_to genre_animes_path #or redirect them to genre show page
+      else 
+        render :new 
+      end
   end 
 
   # def create  
