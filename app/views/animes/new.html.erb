@@ -22,16 +22,13 @@
         
         <%= f.hidden_field :genre_id, value: @genre.id %>
         
-
-        
+       
     <% else %>    
         <h4> And Add the Genre </h4> 
         <%= f.fields_for :genre do |g| %> 
             <%= g.label :name %>
             <%= g.text_field :name %>
-        <% end %>
-
-        
+        <% end %>       
             
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: true) %>
         

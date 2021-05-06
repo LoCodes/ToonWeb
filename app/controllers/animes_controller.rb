@@ -99,7 +99,7 @@ class AnimesController < ApplicationController
   def update 
     @anime = Anime.find_by_id(params[:id])
     @anime.update(anime_params)
-    redirect to anime_path(@anime)
+    redirect_to anime_path(@anime)
   end 
 
   #route:       path/prefix:
