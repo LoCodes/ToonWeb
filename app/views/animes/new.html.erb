@@ -16,6 +16,8 @@
 
 
     <% if @genre %>
+        Genre: <%= f.label @genre.name %><br>
+        
         <% f.hidden_field :genre_id, value: @genre.id %>
     <% else %>    
         <h4> And Add the Genre </h4> 

@@ -4,10 +4,10 @@
 
 <%# can put in helper%>
 <%if @genre %>
-    Genre: <%= @genre.name %>'s Animes: <br>
+    All Anime Of <%= @genre.name %> Genre: <br>
 <% end %>
 <% if @user %>
-    User: <%= @user.username %>'s Animes: <br>
+    <%= @user.username %>'s Anime List: <br>
 <% end %> <br>
 
 <% @animes.each do |a| %>
