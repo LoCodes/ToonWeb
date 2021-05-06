@@ -20,13 +20,13 @@
         
        
     <% else %>    
-        <h4> And Add the Genre </h4> 
+        <h4> Add the Genre </h4> 
         <%= f.fields_for :genre do |g| %> 
-            <%= g.label :name %>
-            <%= g.text_field :name %>
+            <%= g.label :genre_name %>:
+            <%= g.text_field :name %><br>
         <% end %>       
-            
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: true) %>
+            or pick a genre: 
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: "select") %><br>
         
 
     <% end %>
