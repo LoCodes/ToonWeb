@@ -18,7 +18,8 @@
         Hello <%= @current_user.username %>!  <br>
         <%= link_to "Add New Anime", new_anime_path %> |
         <%= link_to "All Animes", animes_path %> | 
-        <%= link_to "All Genres", genres_path %>
+        <%= link_to "All Genres", genres_path %> |
+        <%= link_to "All Users", users_path %>
         <%= button_to "Log Out", logout_path %>
       <% else %>
         <%= button_to "Log In", login_path %><%= button_to "Sign Up", signup_path(@user) %><br>
@@ -33,9 +34,6 @@
         <%= flash[:message] %>
       <% end %>
       <%= @error || @error1 %>
-
-      
-
 
     </div>
 

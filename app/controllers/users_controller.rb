@@ -14,16 +14,11 @@ class UsersController < ApplicationController
 
     end
 
-    def show  # DELETE THIS LATER  DOES NOT WORK 
+    def show # users anime list now 
         
         @user = User.find_by(id: params[:id])
-        # redirect_if_not_logged_in
+        redirect_to user_animes_path(@user)
         
-        # if current_user == logged_in?
-        #     @user = User.find_by(id: params[:id])
-        # else
-        #     redirect_to rooth_path
-        # end
 
     end 
 
@@ -42,7 +37,7 @@ class UsersController < ApplicationController
 private 
     
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit( :username, :email, :password)
     end 
     
 end
