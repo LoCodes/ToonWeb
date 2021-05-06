@@ -2,6 +2,7 @@ class Anime < ApplicationRecord
     belongs_to :user
     belongs_to :genre
 
+    validates :title, uniqueness: true, presence: true
     accepts_nested_attributes_for :genre, reject_if: :all_blank
 
     # def genre_attributes=(attr_hash)
