@@ -16,18 +16,16 @@
     <% if @genre %>
         Genre: <%= f.label @genre.name %><br>
         
-        <%= f.hidden_field :genre_id, value: @genre.id %>
-        
+        <%= f.hidden_field :genre_id, value: @genre.id %>       
        
     <% else %>    
         <h4> Add the Genre </h4> 
         <%= f.fields_for :genre do |g| %> 
             <%= g.label :genre_name %>:
-            <%= g.text_field :name %><br>
+            <%= g.text_field :name %>
         <% end %>       
-            or pick a genre: 
+            or 
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: "select") %><br>
-        
 
     <% end %>
 
