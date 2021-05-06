@@ -38,15 +38,20 @@ class AnimesController < ApplicationController
   # end
 
   def new 
-    @anime = Anime.new
-    @anime.build_genre
+    # THIS IS WHAT YOU WORKING ON !!!!!!
+    # if params[:genre_id] && @genre = Genre.find_by_id(params[:genre_id])   # to know its nested 
+    #    @animes = @genre.animes
+
+
+      @anime = Anime.new
+      @anime.build_genre
 
   end 
 
   #route: /animes       path/prefix:  animes_path
   # only when we submit a form is when we make a post request 
   def create 
-    # @anime = Anime.new(anime_params)
+    # @anime = Anime.new(anime_params) 
     @anime = current_user.animes.build(anime_params)
     if @anime.save 
       redirect_to animes_path

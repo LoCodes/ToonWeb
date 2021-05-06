@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #logout route 
   post '/logout' => 'sessions#destroy'
 
-  resources :animes
+  resources :animes #, only: [:show, :edit, :update, :destroy]
 
   #'/users/:id/animes'
   #'/users/:id/animes/new'

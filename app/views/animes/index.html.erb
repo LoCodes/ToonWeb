@@ -4,9 +4,10 @@
 
 <%# can put in helper%>
 <%if @genre %>
-    <%= @genre.name %>'s animes 
-<% else %>
-    <h3> All Anime  </h3>
+    Genre: <%= @genre.name %>'s Animes: <br>
+<% end %>
+<% if @user %>
+    User: <%= @user.username %>'s Animes: <br>
 <% end %> <br>
 
 <% @animes.each do |a| %>
