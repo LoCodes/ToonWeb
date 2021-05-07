@@ -46,11 +46,12 @@ class AnimesController < ApplicationController
       @anime = @genre.animes.build(anime_params)
     else 
       @anime = current_user.animes.build(anime_params)
+      @anime.build_genre  #need it for nested routed 
     end 
       if @anime.save 
         redirect_to genre_animes_path #or redirect them to genre show page
-      else 
-        render :new 
+      else
+        render :new
       end
   end 
 
