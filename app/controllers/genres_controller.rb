@@ -6,6 +6,7 @@ class GenresController < ApplicationController
 
     def new 
         @genre = Genre.new
+        redirect_to new_anime_path
     end 
 
     def create 
