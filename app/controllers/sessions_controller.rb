@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(user)
         else
             # flash[:message] = "Incorrect login credentials, try again."
+            @error2 = "Incorrect login credentials, try again." #if params[:genre_id]
             render :new 
         end 
     end 
