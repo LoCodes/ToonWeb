@@ -1,14 +1,4 @@
-<% if @anime.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@anime.errors.count, "error") %> prohibited this User from being saved:</h2>
 
-    <ul>
-      <% @anime.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
 
 <%= form_with model: [@genre, @anime] do |f| %>
