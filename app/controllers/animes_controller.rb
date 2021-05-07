@@ -33,6 +33,7 @@ class AnimesController < ApplicationController
 
       @anime = Anime.new
       @anime.build_genre
+      
     end 
 
   end 
@@ -46,7 +47,6 @@ class AnimesController < ApplicationController
     else 
       @anime = current_user.animes.build(anime_params)
     end 
-    byebug
       if @anime.save 
         redirect_to genre_animes_path #or redirect them to genre show page
       else 
