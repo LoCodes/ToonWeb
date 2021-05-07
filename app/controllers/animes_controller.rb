@@ -79,6 +79,10 @@ class AnimesController < ApplicationController
 
   #route:       path/prefix:
   def destroy 
+    @anime = Anime.find(params[:id])
+    @anime.destroy
+
+    redirect_to root_path
   end 
 
 private

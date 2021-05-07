@@ -33,7 +33,7 @@
             <%= g.text_field :name %>
         <% end %>       
             or 
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: "select") %><br>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: 'Select a Genre'}) %><br>
 
     <% end %>
 
