@@ -4,6 +4,10 @@
 
 
 <% @genres.each do |g| %>
-    <%= link_to g.name, genre_animes_path(g)%><br>
+    <%= link_to g.name, genre_animes_path(g)%>
+
+    <% g.animes.each do |anime| %>
+    <li><%= anime.title %></li>
+    <% end %>
     
 <% end %>

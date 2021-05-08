@@ -16,4 +16,13 @@ class Anime < ApplicationRecord
         
     # end 
 
+
+    # SCOPE METHODS 
+
+    # class methods that query the table associated with database 
+    # return 
+
+    # 2 ways to define scope methods 
+    
+
 end
