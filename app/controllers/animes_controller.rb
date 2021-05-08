@@ -1,7 +1,7 @@
 class AnimesController < ApplicationController
   # before_action :redirect_if_not_logged_in
   before_action :correct_user, only: [:edit, :update, :destroy]
-
+  before_action :set_anime, except: [:index, :new, :create]
 
   # show ALL anime s
   # route: '/animes' path/prefix: animes_path
@@ -62,20 +62,20 @@ class AnimesController < ApplicationController
 
 
   def show
-    @anime = Anime.find_by(id: params[:id])
+    #@anime = Anime.find_by(id: params[:id])
   end
 
 
 
   #route:       path/prefix:
   def edit
-    @anime = Anime.find_by_id(params[:id])
+    #@anime = Anime.find_by_id(params[:id])
     @genre = Genre.find_by_id(params[:id]) #keep
   end
 
   #route:       path/prefix:
   def update 
-    @anime = Anime.find_by_id(params[:id])
+    #@anime = Anime.find_by_id(params[:id])
     @anime.update(anime_params)
     redirect_to anime_path(@anime)
   end 
@@ -84,7 +84,7 @@ class AnimesController < ApplicationController
 
   # NOT DONE 
   def destroy 
-      @anime = Anime.find(params[:id])
+      #@anime = Anime.find(params[:id])
       @anime.destroy
 
       redirect_to animes_path

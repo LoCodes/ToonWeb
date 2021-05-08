@@ -14,6 +14,10 @@ class Genre < ApplicationRecord
 
 
     #scope method
+    # scope :alpha, -> {joins(:animes).where('animes.name').group('genres.name')} 
+    #{order('title')}
+    # scope :alpha, -> {order('animes.title')}
     
+
     # scope :genres_animes, -> joins(:animes).group('genres.name')
 end
