@@ -47,6 +47,8 @@ class AnimesController < ApplicationController
       @anime = @genre.animes.build(anime_params)
     else 
       @anime = current_user.animes.build(anime_params)
+      # @anime = Anime.new(anime_params)
+
       # @anime.build_genre #need it for nested routed  Doesnt work 
     end 
       if @anime.save 
@@ -82,15 +84,11 @@ class AnimesController < ApplicationController
 
   # NOT DONE 
   def destroy 
-    if !@current_user
-      flash[:message] = "Can't delete anime post that isn't yours"
-      # redirect_to anime_path(@anime)
-    else
       @anime = Anime.find(params[:id])
       @anime.destroy
 
       redirect_to animes_path
-    end 
+
 
   end 
 
@@ -108,5 +106,10 @@ private
       # @current_user_error
     end
   end
+
+    # Set this in before_action WHEN REFRACTORING!! 
+  def set_anime
+    @anime = Anime.find_by(id: params[:id])
+  end 
 
 end
