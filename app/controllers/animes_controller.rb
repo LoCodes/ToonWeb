@@ -1,5 +1,6 @@
 class AnimesController < ApplicationController
   # before_action :redirect_if_not_logged_in
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # show ALL anime s
@@ -46,7 +47,7 @@ class AnimesController < ApplicationController
       @anime = @genre.animes.build(anime_params)
     else 
       @anime = current_user.animes.build(anime_params)
-      @anime.build_genre #need it for nested routed 
+      # @anime.build_genre #need it for nested routed  Doesnt work 
     end 
       if @anime.save 
         redirect_to animes_path #or redirect them to genre show page
@@ -97,6 +98,15 @@ private
 
   def anime_params 
     params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name]) 
+  end
+
+  def correct_user
+    @anime = Anime.find_by(id: params[:id]) # find the post
+    unless current_user?(@anime.user)
+       
+      redirect_to user_path(current_user)  #send them to their own list of animes 
+      # @current_user_error
+    end
   end
 
 end
