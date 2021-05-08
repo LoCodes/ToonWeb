@@ -23,6 +23,8 @@ class Anime < ApplicationRecord
     # return 
 
     # 2 ways to define scope methods 
-    
+
+    scope :alpha, -> {order('title')}
+
 
 end

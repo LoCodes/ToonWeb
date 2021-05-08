@@ -18,7 +18,7 @@ class AnimesController < ApplicationController
     else 
       @error = "That genre does not exist yet." if params[:genre_id] 
       @error1 = "That user does not exist yet." if params[:user_id]
-      @animes = Anime.all
+      @animes = Anime.alpha
     end 
   end
 
