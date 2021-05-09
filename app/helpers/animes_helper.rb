@@ -12,6 +12,13 @@ module AnimesHelper
             link_to "Delete", anime_path(@anime), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }
         end 
     end 
+
+    def genre_name
+        if @genre
+            @genre.name
+        end
+    end 
+    
 end
 
 
