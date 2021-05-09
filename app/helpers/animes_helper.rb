@@ -1,4 +1,6 @@
-module AnimesHelper
-
+module AnimesHelper 
+    
 
 end
+
+

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     end
 
-    def show # users anime list now 
+    def show # users anime list now
         
         @user = User.find_by(id: params[:id])
         redirect_to user_animes_path(@user)

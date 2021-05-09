@@ -6,7 +6,7 @@
     Genre: <%= @anime.genre.name %><br>
 
 
-<% if @correct_user%>
-<%= link_to "Edit", edit_anime_path(@anime) %>
-<%= link_to "Delete", anime_path(@anime), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }%>
+<% if current_user %>
+    <%= link_to "Edit", edit_anime_path(@anime) %>
+    <%= link_to "Delete", anime_path(@anime), method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
 <% end %>
