@@ -1,5 +1,6 @@
-<h1> Users#index </h1>
+<h2> Users </h2>
 
-<% @users.each do |u| %>
+<ul class="center"><% @users.each do |u| %>
     <%= link_to u.username, user_path(u) %> <br>
 <% end %>
+</ul>

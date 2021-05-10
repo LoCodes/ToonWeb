@@ -30,6 +30,7 @@ class AnimesController < ApplicationController
     # THIS IS WHAT YOU WORKING ON !!!!!!
     if params[:genre_id] && @genre = Genre.find_by_id(params[:genre_id])   # to know its nested 
       @anime = @genre.animes.build #== Genre.new(genre_id: @genre.id)
+      
     else 
 
       @anime = Anime.new

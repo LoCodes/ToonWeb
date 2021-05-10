@@ -1,5 +1,3 @@
-<h1>Animes#index</h1>
-<p>Find me in app/views/animes/index.html.erb</p>
 
 
 <%# can put in helper%>
@@ -10,12 +8,12 @@
     <h4> <%= @user.username %>'s Anime List: </h4> <br>
 <% end %> <br>
 
-<% @animes.each do |a| %>
+<ul class="center"><% @animes.each do |a| %>
     <%= link_to a.title, anime_path(a)%><br>
-    
+ 
 <% end %>
 
-
+</ul>  
 
   
 

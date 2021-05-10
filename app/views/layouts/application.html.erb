@@ -11,11 +11,12 @@
   </head>
 
   <body>
-    <center><h1> ToonWeb </h1>
+    <center>
 
     <div>
     <br>
       <% if logged_in? %>
+      <h1> ToonWeb </h1>
         <%= link_to "Add New Anime", new_anime_path %> |
         <%= link_to "All Animes", animes_path %> | 
         <%= link_to "All Genres", genres_path %> |
