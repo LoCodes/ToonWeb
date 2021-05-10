@@ -1,14 +1,7 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User from being saved:</h2>
 
-    <ul>
-      <% @user.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+
+<%= render partial: 'layouts/errors', locals: {object: @user}  %>
+
 
 <%= form_with model: @user do |f| %>
     <%= f.label :username %>

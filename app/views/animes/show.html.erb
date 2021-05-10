@@ -1,11 +1,15 @@
 <h1>Animes#show</h1>
 <p>Find me in app/views/animes/show.html.erb</p>
 
-<h3> Title: <%= @anime.title%> </h3>
-    Content: <%= @anime.content %><br>
-    Genre: <%= @anime.genre.name %><br>
+<ul class="center"> 
+<h3> Title:<br> 
+<%= @anime.title%> </h3>
+<h3> Genre:</h3> <%= @anime.genre.name %><br><br>
+
+<h3> Content:</h3> <%= @anime.content %><br> 
 
 
 
 
 <%= edit_link %>  <%= delete_link %>
+</ul>

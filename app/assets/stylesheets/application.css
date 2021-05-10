@@ -17,6 +17,10 @@
 {
  text-align: center;
  list-style-position: inside;
+ margin: auto;
+ width: 30%;
+ border: 3px solid #73AD21;
+ padding: 40px;
 }
 ul.center li
 {
