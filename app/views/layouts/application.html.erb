@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <center><h1> ToonWeb </h1>
 
     <div>
     <br>
@@ -22,8 +23,8 @@
         <h3> Hello <%= @current_user.username %>! </h3>
 
         <%= button_to "Log Out", logout_path %>
-      <% else %>
-        <%= button_to "Log In", login_path %><%= button_to "Sign Up", signup_path(@user) %><br>
+      <%# else %>
+        <%#= button_to "Log In", login_path %><%#= button_to "Sign Up", signup_path(@user) %><br>
     <% end %>
         
       
@@ -41,6 +42,6 @@
     </div>
 
     <%= yield %>
-   
+   </center>
   </body>
 </html>

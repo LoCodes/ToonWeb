@@ -1,4 +1,7 @@
-<h1> Welcome Page  <%= @current_user%> </h1>
 
 
-<%# if logged in %>
+<% if !logged_in? %>
+    <h1> Welcome ToonWeb! </h1>
+    <%= link_to "Log In", login_path %><br>
+    <%= link_to "Sign Up", signup_path(@user) %><br>
+<% end %>
