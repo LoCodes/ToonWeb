@@ -1,5 +1,5 @@
 class AnimesController < ApplicationController
-  #before_action :redirect_if_not_logged_in
+  before_action :redirect_if_not_logged_in
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_anime, except: [:index, :new, :create]
 
