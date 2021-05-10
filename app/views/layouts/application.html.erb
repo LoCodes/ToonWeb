@@ -20,7 +20,9 @@
         <%= link_to "Add New Anime", new_anime_path %> |
         <%= link_to "All Animes", animes_path %> | 
         <%= link_to "All Genres", genres_path %> |
-        <%= link_to "All Users", users_path %>
+        <%= link_to "All Users", users_path %> | 
+        <%#= link_to "My Anime List", user_animes_path(@current_user)%>
+        <%= my_animes_link %>
         <h3> Hello <%= @current_user.username %>! </h3>
 
         <%= button_to "Log Out", logout_path %>

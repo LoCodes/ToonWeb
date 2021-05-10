@@ -17,5 +17,11 @@ module ApplicationHelper
         user == current_user
     end
 
+    def my_animes_link 
+        if @current_user
+            link_to "My Animes", user_animes_path(@current_user)
+        end 
+    end 
+
 
 end

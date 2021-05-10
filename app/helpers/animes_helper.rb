@@ -11,7 +11,9 @@ module AnimesHelper
         if current_user == @anime.user 
             link_to "Delete", anime_path(@anime), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }
         end 
-    end   
+    end
+    
+
     
 end
 
