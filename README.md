@@ -32,6 +32,9 @@ gem 'omniauth-rails_csrf_protection'
 
 ```
 
+You may also check out this descriptive blog I wrote on how to use google authentication:
+https://lorencipriano.medium.com/google-authentication-for-rails-ddfcaa3cb7d4
+
 # Contribution 
 
 Bug reports and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
