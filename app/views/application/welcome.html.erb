@@ -3,5 +3,5 @@
 <% if !logged_in? %>
     <h1> Welcome ToonWeb! </h1>
     <%= link_to "Log In", login_path %><br>
-    <%= link_to "Sign Up", signup_path(@user) %><br>
+    <%= link_to "Sign Up", new_user_path(@user) %><br>
 <% end %>
