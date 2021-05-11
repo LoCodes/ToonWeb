@@ -2,6 +2,10 @@
 
 <% if !logged_in? %>
     <h1> Welcome ToonWeb! </h1>
+    <p> Here you can post animes of your liking, a short summary and the genre it belongs to, 
+        to help other users have a better user experience, and search other animes by genre. 
+
+    </p>
     <%= link_to "Log In", login_path %><br>
     <%= link_to "Sign Up", new_user_path(@user) %><br>
 <% end %>
