@@ -76,6 +76,7 @@ class AnimesController < ApplicationController
 
   #route:       path/prefix:
   def update 
+    # byebug
     # @anime = Anime.find_by_id(params[:id])
     @anime.update(anime_params)
     redirect_to anime_path(@anime)
@@ -96,8 +97,8 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name]) 
-  end
+    params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name, :id]) 
+  end    
 
   def correct_user
     @anime = Anime.find_by(id: params[:id]) # find the post
@@ -110,7 +111,7 @@ private
 
     # Set this in before_action WHEN REFRACTORING!! 
   def set_anime
-    @anime = Anime.find_by(id: params[:id])
+    @anime = Anime.find_by_id(params[:id])
   end 
 
 end
