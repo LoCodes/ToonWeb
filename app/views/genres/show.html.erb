@@ -3,6 +3,17 @@
 <%= @genre.name %> 
 
 
+<%# <%= @genre.users %> 
+
+<% @genre.users.each do |g| %>
+<%= g.username %>
+<% end %>
+
+<% @genre.animes.each do |a| %>
+<%= a.title %>
+<% end %>
+
 <h3> Add An Anime in This Genre: </h3>
 
 <%= link_to 'Add A New Anime', new_genre_anime_path(@genre) %>
+

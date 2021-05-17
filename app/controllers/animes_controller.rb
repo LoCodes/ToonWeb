@@ -71,14 +71,15 @@ class AnimesController < ApplicationController
   #route:       path/prefix:
   def edit
     # @anime = Anime.find_by_id(params[:id])
-    @genre = Genre.find_by_id(params[:id]) #keep
+    @genre = Genre.find_by_id(params[:genre_id]) #keep
   end
 
   #route:       path/prefix:
   def update 
-    # byebug
+    byebug
     # @anime = Anime.find_by_id(params[:id])
     @anime.update(anime_params)
+
     redirect_to anime_path(@anime)
   end 
 
@@ -97,7 +98,7 @@ class AnimesController < ApplicationController
 private
 
   def anime_params 
-    params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name, :id]) 
+    params.require(:anime).permit(:title, :content, :user_id, :genre_id, genre_attributes: [:name]) 
   end    
 
   def correct_user

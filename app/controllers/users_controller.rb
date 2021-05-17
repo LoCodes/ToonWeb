@@ -6,6 +6,15 @@ class UsersController < ApplicationController
         @users = User.all 
     end 
 
+
+    def show # users anime list now
+        
+        @user = User.find_by(id: params[:id])
+        redirect_to user_animes_path(@user)
+        
+
+    end 
+
     def new
         if !logged_in?
             @user = User.new
@@ -15,13 +24,6 @@ class UsersController < ApplicationController
 
     end
 
-    def show # users anime list now
-        
-        @user = User.find_by(id: params[:id])
-        redirect_to user_animes_path(@user)
-        
-
-    end 
 
     def create 
         @user = User.new(user_params)

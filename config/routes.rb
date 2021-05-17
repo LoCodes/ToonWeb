@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'application#welcome'
 
-  get '/signup', to: 'users#new'#, as: signup. --users/signup dont work 
+  get '/signup', to: 'users#new'#, as: signup
   post '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end 
 
   #@anime.genre
-
+  #callbacks to domain, applied on google side 
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
